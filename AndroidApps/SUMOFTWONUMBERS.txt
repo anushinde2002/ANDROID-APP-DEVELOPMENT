@@ -1,0 +1,76 @@
+1. Hello World!
+2. Sum of Two numbers
+
+->XML File
+
+package com.example.sum;
+
+import android.os.Bundle;
+import androidx.appcompat.app.AppCompatActivity;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
+import android.widget.Toast;
+
+public class MainActivity extends AppCompatActivity {
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        EditText t1 = (EditText) findViewById(R.id.num1);
+        EditText t2 = (EditText) findViewById(R.id.num2);
+        EditText t3 = (EditText) findViewById(R.id.num3);
+        TextView Result = (TextView) findViewById(R.id.textView);
+        Button B1 = (Button) findViewById(R.id.btn);
+        B1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int n1 = Integer.parseInt(t1.getText().toString().trim());
+                int n2 = Integer.parseInt(t2.getText().toString().trim());
+                int n3 = Integer.parseInt(t3.getText().toString().trim());
+                int sum = n1 + n2 + n3;
+                Result.setText("Sum::" + n1 + "and" + n2 + "and" + n3 + "is" + sum);
+                Toast.makeText(MainActivity.this, "sum is" + sum, Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+}
+
+->MainActivity.java
+
+package com.example.sum;
+
+import android.os.Bundle;
+import androidx.appcompat.app.AppCompatActivity;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
+import android.widget.Toast;
+
+public class MainActivity extends AppCompatActivity {
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        EditText t1 = (EditText) findViewById(R.id.num1);
+        EditText t2 = (EditText) findViewById(R.id.num2);
+        EditText t3 = (EditText) findViewById(R.id.num3);
+        TextView Result = (TextView) findViewById(R.id.textView);
+        Button B1 = (Button) findViewById(R.id.btn);
+        B1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int n1 = Integer.parseInt(t1.getText().toString().trim());
+                int n2 = Integer.parseInt(t2.getText().toString().trim());
+                int n3 = Integer.parseInt(t3.getText().toString().trim());
+                int sum = n1 + n2 + n3;
+                Result.setText("Sum::" + n1 + "and" + n2 + "and" + n3 + "is" + sum);
+                Toast.makeText(MainActivity.this, "sum is" + sum, Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+}

@@ -1,0 +1,43 @@
+8. Number greater than 10
+MainActivity.java
+
+package com.example.numgreater10;
+
+import android.os.Bundle;
+
+import android.annotation.SuppressLint;
+import android.os.Bundle;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
+import androidx.appcompat.app.AppCompatActivity;
+
+public class MainActivity extends AppCompatActivity {
+    EditText ed1,ed2;
+    Button btn_val;
+    TextView tv;
+    @SuppressLint("SetTextI18n")
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        ed1=findViewById(R.id.ed1);
+        ed2=findViewById(R.id.ed2);
+        btn_val=findViewById(R.id.btn_val);
+        tv=findViewById(R.id.tv);
+        btn_val.setOnClickListener(view -> {
+            int a=Integer.parseInt(ed1.getText().toString());
+            int b=Integer.parseInt(ed2.getText().toString());
+            if ((a > 10) || (b > 10))
+            {
+                ed1.getText().clear();
+                ed2.getText().clear();
+                tv.setText("Rejected as numbers should be less than 10");
+            }
+            else{
+                tv.setText("Num 1 :\t" + a + "\nNum 2 :\t" + b);
+            }
+        });
+    }
+}
+

@@ -1,0 +1,37 @@
+6.Factorial of Number
+MainActivity.java
+
+package com.example.factorial;
+import androidx.appcompat.app.AppCompatActivity;
+import android.os.Bundle;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
+public class MainActivity extends AppCompatActivity {
+
+    private Button button;
+    private EditText editText;
+    private TextView textView;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        button = findViewById(R.id.button);
+        editText = findViewById(R.id.editTextNumber);
+        textView = findViewById(R.id.textView);
+        button.setOnClickListener(v -> {
+            int num = Integer.parseInt(editText.getText().toString());
+            int fact = factorial(num);
+            String str = "The factorial of " + num + "is:" + fact;
+            textView.setText(str);
+        });
+    }
+    int factorial(int num){
+        if (num == 1) {
+            return 1;
+        }
+        return num * factorial(num - 1);
+    }
+}

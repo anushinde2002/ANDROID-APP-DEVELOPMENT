@@ -1,0 +1,118 @@
+3. Square cube of two numbers
+
+->XML File
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+
+    <EditText
+        android:id="@+id/num"
+        android:layout_width="252dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="80dp"
+        android:ems="10"
+        android:inputType="text"
+        android:text=" "
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.417"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textview1"
+        android:layout_width="249dp"
+        android:layout_height="53dp"
+        android:layout_marginTop="160dp"
+        android:text=" "
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.407"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/result"
+        android:layout_width="264dp"
+        android:layout_height="51dp"
+        android:layout_marginBottom="424dp"
+        android:text=" "
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.448"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/btn1"
+        android:layout_width="212dp"
+        android:layout_height="55dp"
+        android:layout_marginBottom="328dp"
+        android:text="SQUARE"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.403"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/btn2"
+        android:layout_width="212dp"
+        android:layout_height="64dp"
+        android:layout_marginBottom="236dp"
+        android:text="CUBE"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.402"
+        app:layout_constraintStart_toStartOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+->MainActivity.java File
+
+package com.example.squarecube;
+
+import android.os.Bundle;
+import androidx.appcompat.app.AppCompatActivity;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
+import android.widget.Toast;
+public class MainActivity extends AppCompatActivity
+{
+    @Override
+    protected void onCreate(Bundle savedInstanceState)
+    {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        EditText t1=(EditText) findViewById(R.id.num);
+        TextView tv=(TextView) findViewById(R.id.textview1);
+        TextView Result=(TextView) findViewById(R.id.result);
+        Button B1=(Button) findViewById(R.id.btn1);
+        Button B2=(Button) findViewById(R.id.btn2);
+
+        B1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                int n1=Integer.parseInt(t1.getText().toString().trim());
+                int res=n1*n1;
+                Result.setText("square::"+n1+"is"+res);
+                Toast.makeText(MainActivity.this,"square is"+res,Toast.LENGTH_SHORT).show();
+            }
+        });
+        B2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int n1=Integer.parseInt(t1.getText().toString().trim());
+                int res=n1*n1*n1;
+                Result.setText("cube::"+n1+"is"+res);
+                Toast.makeText(MainActivity.this,"cube is"+res,Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+}
+
